@@ -1,0 +1,16 @@
+# Robot Physical Parameters
+robot:
+  wheel_radius: 0.1  # meters
+  wheel_separation: 0.6  # meters (distance between left and right wheels)
+  wheel_base: 0.4  # meters (distance between front and rear axles)
+  max_linear_velocity: 1.0  # m/s
+  max_angular_velocity: 2.0  # rad/s
+  
+# LiDAR Configuration
+lidar:
+  frame_id: "lidar_link"
+  topic: "/scan"
+  range_min: 0.12  # meters
+  range_max: 10.0  # meters
+  angle_min: -3.14159  # radians
+  angle_max: 3.14159  # radians
