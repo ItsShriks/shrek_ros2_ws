@@ -1,0 +1,17 @@
+Part Name,full_assem
+Working BOM,"as of April 27, 2026 at 4:10:08 PM UTC"
+Exported by,shrikar.nakhye@smail.inf.h-brs.de
+Time of Export,"4:10 PM Apr 27, 2026"
+
+Level,Part Number,Part Name,External Component,Milestone,Description,Item Number,Lifecycle,Revision,State,Quantity,Material Name,Change Order
+1,full_assem,full_assem,,,,,,,Working,1,Steel
+1.1,shoulder_1,shoulder_1,,,,,,,Working,12,ABS
+1.2,arm_2,arm_2,,,,,,,Working,2,ABS
+1.3,servo_with_cover,servo_with_cover,,,,,,,Working,12,Steel
+1.3.1,servo,servo,,,,,,,Working,1,Steel
+1.3.2,servo_cover_1,servo_cover_1,,,,,,,Working,1,ABS
+1.4,arm_1,arm_1,,,,,,,Working,2,ABS
+1.5,servo,servo,,,,,,,Working,5,Steel
+1.6,face,face,,,,,,,Working,1,ABS
+1.7,foot,foot,,,,,,,Working,2,ABS
+1.8,chest_1,base_link,,,,,,,Working,1,ABS

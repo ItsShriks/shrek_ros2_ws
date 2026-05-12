@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<robot name="Shrike" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Shrike_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Shrike_description)/urdf/Shrike.trans" />
+<xacro:include filename="$(find Shrike_description)/urdf/Shrike.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.21473310201213458 -0.08121155208299646 0.43599032806814036" rpy="0 0 0"/>
+    <mass value="0.0895323260888689"/>
+    <inertia ixx="0.000162" iyy="0.000293" izz="0.000157" ixy="-2e-06" iyz="1.9e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Shrike_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Shrike_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_5">
+  <inertial>
+    <origin xyz="0.00967391531006162 0.002110309207409372 -0.024102349663373046" rpy="0 0 0"/>
+    <mass value="0.25164687718092266"/>
+    <inertia ixx="4.1e-05" iyy="6.9e-05" izz="4.4e-05" ixy="-1e-06" iyz="2e-06" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.309698 0.078895 -0.374307" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Shrike_description/meshes/servo_5.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.309698 0.078895 -0.374307" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Shrike_description/meshes/servo_5.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_6">
+  <inertial>
+    <origin xyz="-0.009732909607281959 0.0018193874168333235 -0.024102470374754825" rpy="0 0 0"/>
+    <mass value="0.25164687718092266"/>
+    <inertia ixx="4.1e-05" iyy="6.9e-05" izz="4.4e-05" ixy="-0.0" iyz="2e-06" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.103321 0.081973 -0.374307" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Shrike_description/meshes/servo_6.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.103321 0.081973 -0.374307" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Shrike_description/meshes/servo_6.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
