@@ -11,6 +11,7 @@ Tools to wire, check, map, calibrate and stand up the 17-servo robot
 | `03_calibrate.py` | Per joint: set neutral (straight), direction, limits | yes |
 | `04_stand.py` | Switches servos on one by one into the stand pose; live balance trims | yes |
 | `relax.py` | Stops all pulses, servos go limp | releases |
+| `servo_status.py` | Shows the angle every servo is currently commanded to (read from the PCA) | no |
 | `shrek_servos.py` | Shared library used by all of the above | - |
 
 Everything is stored in `src/shrek_essentials/config/servo_config.yaml`.
@@ -185,6 +186,26 @@ Next time `python3 04_stand.py` stands it straight into the saved pose.
 `--pose ready` starts from slightly bent knees.
 
 To let go later: hold the robot, then `python3 relax.py`.
+
+### Reading the current servo angles
+
+```bash
+python3 servo_status.py            # snapshot
+python3 servo_status.py --watch    # live, refreshes twice a second
+python3 servo_status.py --unmapped # include channels not in the config
+```
+
+For every joint this shows the pulse width, the servo angle (0–180°) and the
+joint angle relative to its calibrated neutral. It reads the PCA9685's
+registers directly, so it works while `04_stand.py` is running and after it
+has exited (the PCA keeps holding).
+
+- **Commanded, not measured:** MG996R servos have no position feedback, so
+  this is the angle each servo is being told to hold. The servo is really
+  there unless it's blocked, overloaded or short of power. A hot, humming
+  servo is the sign it isn't reaching its target.
+- **Resolution:** about ±0.3°, from the PCA's 12-bit timer.
+- **The GPIO12 servo:** it can only be read while `pigpiod` drives it.
 
 ---
 
