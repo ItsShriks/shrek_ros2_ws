@@ -1,0 +1,41 @@
+# Shrek servo configuration (17 DoF, PCA9685).
+# The robot_setup tools rewrite this file when you save, so keep notes
+# in the README rather than in comments here. Field meanings: see
+# src/shrek_essentials/scripts/robot_setup/README.md
+
+hardware:
+  pca9685_addresses: [0x40]
+  pwm_frequency: 50
+  pca_reference_clock: 25000000
+  min_pulse_us: 500   # servo angle 0
+  max_pulse_us: 2500  # servo angle 180
+  gpio_backend: auto   # for joints on a Pi pin: auto | pigpio | lgpio | default
+
+startup:
+  stagger_s: 0.3  # pause between switching on each servo (limits inrush current)
+
+joints:
+  l_hip_roll:       {board: 0x40, channel:  0, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  l_hip_pitch:      {board: 0x40, channel:  1, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  l_knee:           {board: 0x40, channel:  2, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  l_ankle_pitch:    {board: 0x40, channel:  3, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  r_hip_roll:       {board: 0x40, channel:  4, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  r_hip_pitch:      {board: 0x40, channel:  5, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  r_knee:           {board: 0x40, channel:  6, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  r_ankle_pitch:    {board: 0x40, channel:  7, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  l_shoulder_pitch: {board: 0x40, channel:  8, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  l_shoulder_roll:  {board: 0x40, channel:  9, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  l_upper_arm_yaw:  {board: 0x40, channel: 10, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  l_elbow:          {board: 0x40, channel: 11, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  r_shoulder_pitch: {board: 0x40, channel: 12, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  r_shoulder_roll:  {board: 0x40, channel: 13, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  r_upper_arm_yaw:  {board: 0x40, channel: 14, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  r_elbow:          {board: 0x40, channel: 15, neutral:    90, direction:  1, min:  10, max: 170, calibrated: false}
+  head_yaw:         {gpio: 12, neutral:    90, direction:  1, min:  30, max: 150, calibrated: false}
+
+# Joint angles in degrees relative to neutral (see JOINT_HELP for signs).
+# Joints that are not listed stay at 0 (neutral).
+poses:
+  stand: {}
+  ready: {l_hip_pitch: 10, l_knee: 20, l_ankle_pitch: 10, r_hip_pitch: 10, r_knee: 20, r_ankle_pitch: 10}
+  sit: {l_hip_pitch: 35, l_knee: 70, l_ankle_pitch: 35, r_hip_pitch: 35, r_knee: 70, r_ankle_pitch: 35}
